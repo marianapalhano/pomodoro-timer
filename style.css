@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+:root {
+    /* variables */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+}
+
+body, button, input, select, textarea {
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+}
+
+.container {
+    width: 450px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.timer {
+    font-size: 64px;
+}
+
+#start {
+    font-size: 48px;
+}
+
+#start, #pause, #reset {
+    cursor: pointer;
+}

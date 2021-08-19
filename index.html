@@ -5,10 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/tomato.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Pomodoro Timer</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="timer">
+            <span id="minutes">25</span>:<span id="seconds">00</span>
+        </div>
+        <div class="controls">
+            <span class="material-icons-round" id="start">
+                play_circle
+            </span>
+            <span class="material-icons-round" id="pause">
+                pause
+            </span>
+            <span class="material-icons-round" id="reset">
+                replay
+            </span>
+        </div>
+        <div class="tasks">
+            <span class="material-icons-round">
+                check_circle
+            </span>
+            <span class="material-icons-round">
+                add_circle
+            </span>
+        </div>
+
+    </div>
+    <script src="app.js"></script>
 </body>
 </html>
