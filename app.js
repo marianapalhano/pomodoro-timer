@@ -5,18 +5,26 @@ const start = document.querySelector('#start');
 const pause = document.querySelector('#pause');
 const reset = document.querySelector('#reset');
 
-let minutes = 25;
-let seconds = 0;
-let timer = null;
-
 function updateTimerHTML() {
     minutesEl.innerHTML = (minutes < 10) ? "0"+minutes : minutes;
     secondsEl.innerHTML = (seconds < 10) ? "0"+seconds : seconds;
 }
 
+function clearTimer() {
+    clearInterval(timer);
+    minutes = 25;
+    seconds = 0;
+    timer = undefined;
+    updateTimerHTML();
+}
+
+let minutes, seconds, timer = undefined;
+clearTimer();
+
 start.addEventListener('click', () => {
+    if (timer) return;
     timer = setInterval(() => {
-        if (minutes === 0 && seconds === 0) {
+        if (!minutes && !seconds) {
             clearInterval(timer);
         } else {
             seconds--;        
@@ -31,11 +39,9 @@ start.addEventListener('click', () => {
 
 pause.addEventListener('click', () => {
     clearInterval(timer);
+    timer = undefined;
 });
 
 reset.addEventListener('click', () => {
-    clearInterval(timer);
-    minutes = 25;
-    seconds = 0;
-    updateTimerHTML();
+    clearTimer();
 });

@@ -11,15 +11,29 @@
 </head>
 <body>
     <div class="container">
-        <div class="timer">
-            <span id="minutes">25</span>:<span id="seconds">00</span>
+        <header><h1>Pomodoro Timer</h1></header>
+
+        <div class="circle-container">
+            <div class="inner"></div>
+            <div class="timer">
+                <span id="minutes">25</span>:<span id="seconds">00</span>
+            </div>
+            <div class="circle">
+                <div class="bar left">
+                    <div class="progress"></div>
+                </div>
+                <div class="bar right">
+                    <div class="progress"></div>
+                </div>
+            </div>
         </div>
+
         <div class="controls">
-            <span class="material-icons-round" id="start">
-                play_circle
-            </span>
             <span class="material-icons-round" id="pause">
                 pause
+            </span>
+            <span class="material-icons-round" id="start">
+                play_circle
             </span>
             <span class="material-icons-round" id="reset">
                 replay

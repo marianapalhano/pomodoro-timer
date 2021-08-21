@@ -23,8 +23,40 @@ body, button, input, select, textarea {
     text-align: center;
 }
 
+.circle-container {
+    height: 240px;
+    width: 240px;
+    position: relative;
+    border: 1px solid red;
+    background-color: red;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.circle-container .inner {
+    border: 1px solid red;
+    background-color: #fff;
+    position: absolute;
+    height: 220px;
+    width: 220px;
+    border-radius: 50%;
+    top: 10px;
+    left: 10px;
+}
+
 .timer {
     font-size: 64px;
+    position: absolute;
+    top: 80px;
+    left: 35px;
+}
+
+.container .controls {
+    width: 120px;
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    margin: 16px auto;
 }
 
 #start {
