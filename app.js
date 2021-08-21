@@ -4,6 +4,8 @@ const secondsEl = document.querySelector('#seconds');
 const start = document.querySelector('#start');
 const pause = document.querySelector('#pause');
 const reset = document.querySelector('#reset');
+const right = document.querySelector('.right .progress');
+const left = document.querySelector('.left .progress');
 
 function updateTimerHTML() {
     minutesEl.innerHTML = (minutes < 10) ? "0"+minutes : minutes;
@@ -17,6 +19,9 @@ function clearTimer() {
     timer = undefined;
     updateTimerHTML();
 }
+
+right.style.webkitAnimationPlayState = "paused";
+left.style.webkitAnimationPlayState = "paused";
 
 let minutes, seconds, timer = undefined;
 clearTimer();
@@ -35,6 +40,8 @@ start.addEventListener('click', () => {
             updateTimerHTML();
         }        
     }, 1000);
+    right.style.webkitAnimationPlayState = "running";
+    left.style.webkitAnimationPlayState = "running";
 });
 
 pause.addEventListener('click', () => {

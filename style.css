@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
 
-/* :root {
-    
-} */
+:root {
+    --dark-red: #D90429;
+    --light-red: #ef233c;
+    --light-gray: #EDF2F4;
+    --gray: #8D99AE;
+    --dark-gray: #2B2D42;
+}
 
 * {
     box-sizing: border-box;
@@ -15,6 +19,7 @@ html, body {
 body, button, input, select, textarea {
     font-family: 'Rubik', sans-serif;
     font-size: 16px;
+    color: var(--dark-red);
 }
 
 .container {
@@ -27,14 +32,14 @@ body, button, input, select, textarea {
     height: 240px;
     width: 240px;
     position: relative;
-    border: 1px solid red;
-    background-color: red;
+    /* border: 1px solid var(--dark-red); */
+    background-color: var(--dark-red);
     margin: 0 auto;
     border-radius: 50%;
 }
 
 .circle-container .inner {
-    border: 1px solid red;
+    /* border: 1px solid var(--dark-red); */
     background-color: #fff;
     position: absolute;
     height: 220px;
@@ -42,6 +47,7 @@ body, button, input, select, textarea {
     border-radius: 50%;
     top: 10px;
     left: 10px;
+    z-index: 6;
 }
 
 .timer {
@@ -49,6 +55,7 @@ body, button, input, select, textarea {
     position: absolute;
     top: 80px;
     left: 35px;
+    z-index: 10;
 }
 
 .container .controls {
@@ -57,6 +64,7 @@ body, button, input, select, textarea {
     display: flex;
     justify-content: space-between;
     margin: 16px auto;
+    color: var(--dark-gray);
 }
 
 #start {
@@ -66,3 +74,45 @@ body, button, input, select, textarea {
 #start, #pause, #reset {
     cursor: pointer;
 }
+
+/* tutorial */
+.circle-container .bar{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    -webkit-border-radius: 100%;
+    clip: rect(0px, 240px, 240px, 120px);
+  }
+
+  .circle .bar .progress{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -webkit-border-radius: 100%;
+    clip: rect(0px, 120px, 240px, 0px);
+    background: var(--dark-red);
+  }
+
+  .circle .left .progress{
+    z-index:1;
+    animation: left 25s linear both;
+  }
+  @keyframes left{
+    100%{
+      transform: rotate(180deg);
+    }
+  }
+  .circle .right {
+    transform: rotate(180deg);
+    z-index:3;   
+  }
+  .circle .right .progress{
+    animation: right 25s linear both;
+    animation-delay: 25s;
+  }
+  @keyframes right{
+    100%{
+      transform: rotate(180deg);
+    }
+  }
