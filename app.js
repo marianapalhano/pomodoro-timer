@@ -14,17 +14,25 @@ function updateTimerHTML() {
 
 function clearTimer() {
     clearInterval(timer);
-    minutes = 25;
+    minutes = 2;
     seconds = 0;
     timer = undefined;
     updateTimerHTML();
+    setProgressBar("paused");
+
+    // Reset animation
+    right.style.animationDuration = (minutes/2)*60;
+    left.style.animationDuration = (minutes/2)*60;
 }
 
-right.style.webkitAnimationPlayState = "paused";
-left.style.webkitAnimationPlayState = "paused";
+function setProgressBar(state) {
+    right.style.webkitAnimationPlayState = state;
+    left.style.webkitAnimationPlayState = state;
+}
 
 let minutes, seconds, timer = undefined;
 clearTimer();
+setProgressBar("paused");
 
 start.addEventListener('click', () => {
     if (timer) return;
@@ -40,13 +48,13 @@ start.addEventListener('click', () => {
             updateTimerHTML();
         }        
     }, 1000);
-    right.style.webkitAnimationPlayState = "running";
-    left.style.webkitAnimationPlayState = "running";
+    setProgressBar("running");
 });
 
 pause.addEventListener('click', () => {
     clearInterval(timer);
     timer = undefined;
+    setProgressBar("paused");
 });
 
 reset.addEventListener('click', () => {
