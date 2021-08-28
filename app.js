@@ -1,11 +1,12 @@
 const minutesEl = document.querySelector('#minutes');
 const secondsEl = document.querySelector('#seconds');
-
 const start = document.querySelector('#start');
 const pause = document.querySelector('#pause');
 const reset = document.querySelector('#reset');
 const right = document.querySelector('.right .progress');
 const left = document.querySelector('.left .progress');
+const animation = document.querySelectorAll('.progress');
+console.log(animation)
 
 function updateTimerHTML() {
     minutesEl.innerHTML = (minutes < 10) ? "0"+minutes : minutes;
@@ -21,8 +22,12 @@ function clearTimer() {
     setProgressBar("paused");
 
     // Reset animation
-    right.style.animationDuration = (minutes/2)*60;
-    left.style.animationDuration = (minutes/2)*60;
+    animation[0].classList.remove('progress');
+    void animation[0].offsetWidth;
+    animation[0].classList.add('progress');
+    animation[1].classList.remove('progress');
+    void animation[1].offsetWidth;
+    animation[1].classList.add('progress');
 }
 
 function setProgressBar(state) {
