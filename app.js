@@ -6,7 +6,7 @@ const reset = document.querySelector('#reset');
 const right = document.querySelector('.right .progress');
 const left = document.querySelector('.left .progress');
 const animation = document.querySelectorAll('.progress');
-console.log(animation)
+const audio = new Audio('./assets/alert.wav');
 
 function updateTimerHTML() {
     minutesEl.innerHTML = (minutes < 10) ? "0"+minutes : minutes;
@@ -43,6 +43,7 @@ start.addEventListener('click', () => {
     if (timer) return;
     timer = setInterval(() => {
         if (!minutes && !seconds) {
+            audio.play();
             clearInterval(timer);
         } else {
             seconds--;        
